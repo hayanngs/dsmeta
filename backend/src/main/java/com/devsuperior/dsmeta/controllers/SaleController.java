@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -29,7 +30,8 @@ public class SaleController {
 	}
 
 	@GetMapping("/{id}/notification")
-	public void notifySms(@PathVariable Long id) {
+	public String notifySms(@PathVariable Long id) {
 		smsService.sendSms(id);
+		return "OK";
 	}
 }
